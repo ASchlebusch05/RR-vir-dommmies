@@ -1,0 +1,61 @@
+Q1. Suppose you have two vectors,
+𝑥 =
+(
+−0.94
+−0.97
+0.74
+−0.27
+1.25
+0.42
+0.66
+−0.68
+−0.63)
+and 𝑦 =
+(
+0.40
+0.02
+2.63
+−0.01
+0.72
+1.93
+−0.94
+−0.31
+−0.30)
+Create two matrices A and B with the vectors 𝑥 and 𝑦, respectively, with 3 rows and 3
+columns. Then,
+i. Find the summation of A and B.
+ii. Find the product of A and B with matrix multiplication.
+iii. Find the inverse of A (first check if the matrix is nonsingular).
+iv. Find the determinant of the product that you have obtained in (iii).
+v. Compute the eigenvalues and eigen vectors of the product matrix you obtained
+in (iii) and obtain the summation and product of the eigen values.
+
+Q2.
+a. Create a data frame with at least 5 columns and 10 rows, containing both numerical
+and categorical variables.
+b. Display the first 6 rows of the data frame.
+c. Add a new column to the data frame that is the sum of the values in the second and
+third columns.
+d. Compute summary statistics for each column of the data frame.
+
+
+Q3. It was found in a country that the average male height is 180.3 cm, while the average
+female height is 167.2 cm. We assume that the height distributions for male and female
+are normal with mean = 180.3 cm and variance = 10 cm, and with mean = 167.2 cm and
+variance = 15 cm, respectively.
+If you meet a man and a woman, independently, then what is more likely (between the
+following two situations)?
+- that the man will be bigger than 200 or lesser than 165 cm?
+- that the woman will be between 166 and 168 cm?
+
+
+Q4. Obtain a sequence of nonzero numbers of length 1000 between 0 and 1 (excluding
+the endpoints). Then draw a graph of function 𝑝. 𝑙𝑜𝑔 (𝑝) for 0 < 𝑝 ≤ 1. (Hint: First save
+the values of 𝑝 and 𝑝. 𝑙𝑜𝑔 (𝑝) as a data frame.)
+
+
+Q5. Consider the ‘airquality’ dataset. This dataset contains daily readings of the air quality
+measures from May 1, 1973 to September 30, 1973 in New York. Perform a statistical
+analysis of the data and write a 3-page report. Your report should contain a brief
+description of the dataset, basic statistical analysis and exploratory analysis with the help
+of statistical plots.
