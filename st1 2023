@@ -1,0 +1,124 @@
+ST1 2023
+Q1
+x = c(-0.94,-0.97,0.74,-0.27,1.25,0.42,0.66,-0.68,-0.63)
+y = c(0.40,0.02,2.63,-0.01,0.72,1.93,-0.94,-0.31,-0.30)
+A = matrix(x,nrow = 3)
+B = matrix(y, nrow = 3)
+A
+## [,1] [,2] [,3]
+## [1,] -0.94 -0.27 0.66
+## [2,] -0.97 1.25 -0.68
+## [3,] 0.74 0.42 -0.63
+B
+## [,1] [,2] [,3]
+## [1,] 0.40 -0.01 -0.94
+## [2,] 0.02 0.72 -0.31
+## [3,] 2.63 1.93 -0.30
+#(i)
+A+B
+## [,1] [,2] [,3]
+## [1,] -0.54 -0.28 -0.28
+## [2,] -0.95 1.97 -0.99
+## [3,] 3.37 2.35 -0.93
+#(ii)
+A%*%B
+## [,1] [,2] [,3]
+## [1,] 1.3544 1.0888 0.7693
+## [2,] -2.1514 -0.4027 0.7283
+## [3,] -1.3525 -0.9209 -0.6368
+#(iii)
+det(A)
+## [1] -0.106737
+# Since the determinant is non-zero, so the matrix is non-singular.
+invA = solve(A)
+#(iv)
+det(A%*%B)
+## [1] -0.2033034
+#(v)
+egn.prod = eigen(A%*%B)
+egn.values = egn.prod$values
+egn.vec = egn.prod$vectors
+egn.values
+## [1] 0.19215725+1.700561i 0.19215725-1.700561i -0.06941449+0.000000i
+egn.vec
+## [,1] [,2] [,3]
+## [1,] -0.1468426-0.4694569i -0.1468426+0.4694569i 0.3050014+0i
+## [2,] 0.7586481+0.0000000i 0.7586481+0.0000000i -0.7824459+0i
+## [3,] 0.1858713+0.3846459i 0.1858713-0.3846459i 0.5429112+0i
+sum(egn.values)
+## [1] 0.3149+0i
+prod(egn.values)
+## [1] -0.2033034+0i
+Q2.
+# Creating a data frame with 5 columns and 10 rows
+df <- data.frame(
+ id = 1:10,
+ name = c("Alice", "Bob", "Charlie", "David", "Emma", "Frank", "Grace",
+"Hank", "Ivy", "Jack"),
+ age = c(25, 30, 22, 35, 28, 26, 27, 29, 31, 33),
+ gender = c("F", "M", "M", "M", "F", "M", "F", "M", "F", "M"),
+ salary = c(45000, 60000, 35000, 75000, 50000, 40000, 55000, 65000, 70000,
+80000)
+)
+# Displaying the first 6 rows of the data frame
+head(df, 6)
+## id name age gender salary
+## 1 1 Alice 25 F 45000
+## 2 2 Bob 30 M 60000
+## 3 3 Charlie 22 M 35000
+## 4 4 David 35 M 75000
+## 5 5 Emma 28 F 50000
+## 6 6 Frank 26 M 40000
+# Adding a new column to the data frame that is the sum of the values in the
+second and third columns
+df$age_sum <- df$age + df$salary
+# Computing summary statistics for each column of the data frame
+summary(df)
+## id name age gender
+## Min. : 1.00 Length:10 Min. :22.00 Length:10
+## 1st Qu.: 3.25 Class :character 1st Qu.:26.25 Class :character
+## Median : 5.50 Mode :character Median :28.50 Mode :character
+## Mean : 5.50 Mean :28.60
+## 3rd Qu.: 7.75 3rd Qu.:30.75
+## Max. :10.00 Max. :35.00
+## salary age_sum
+## Min. :35000 Min. :35022
+## 1st Qu.:46250 1st Qu.:46276
+## Median :57500 Median :57529
+## Mean :57500 Mean :57529
+## 3rd Qu.:68750 3rd Qu.:68781
+## Max. :80000 Max. :80033
+Q3.
+# Male height distribution parameters
+mu_m <- 180.3
+var_m <- 10
+# Female height distribution parameters
+mu_f <- 167.2
+var_f <- 15
+# Probability that a man's height is greater than 200 cm
+p_m_gt_200 <- 1 - pnorm(200, mean = mu_m, sd = sqrt(var_m))
+# Probability that a man's height is less than 165 cm
+p_m_lt_165 <- pnorm(165, mean = mu_m, sd = sqrt(var_m))
+# Probability that a woman's height is between 166 and 168 cm
+p_f_between_166_168 <- pnorm(168, mean = mu_f, sd = sqrt(var_f)) - pnorm(166,
+mean = mu_f, sd = sqrt(var_f))
+# Comparing the probabilities
+if ((p_m_gt_200+p_m_lt_165) > p_f_between_166_168) {
+ cat("It is more likely to meet a man who is bigger than 200 cm or lesser
+than 165 cm.\n")
+} else {
+ cat("It is more likely to meet a woman who is between 166 and 168 cm.\n")
+}
+## It is more likely to meet a woman who is between 166 and 168 cm.
+Q4.
+# Obtain a sequence of nonzero numbers of length 1000 between 0 and 1
+(excluding the endpoints)
+p <- seq(from = 0.001, to = 0.999, length.out = 1000)
+# Compute the logarithm of p for 0 < p ≤ 1
+log_p <- log(p)
+# Save the values of p and log(p) as a data frame
+df <- data.frame(p = p, log_p = log_p)
+# Draw a graph of function p.log(p)
+plot(df$p, df$log_p, type = "l", col = "blue", xlab = "p", ylab = "log(p)")
+# Add a title to the graph
+title(main = "Graph of p.log(p) for 0 < p ≤ 1")
